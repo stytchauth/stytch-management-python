@@ -1,0 +1,7 @@
+-r requirements.txt
+black>=22.0.0
+isort>=5.10.0
+autoflake>=1.4.0
+mypy>=0.950
+types-requests>=2.27.0
+coverage>=6.0.0
