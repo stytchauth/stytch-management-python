@@ -4,10 +4,10 @@ The Stytch Management Python library makes it easy to use Stytch's Programmatic 
 
 This library requires Python 3.8 or later.
 
-## Install
+## Installation
 
 ```bash
-pip install stytch-management-python
+pip install stytch-management
 ```
 
 ## Pre-requisites
@@ -189,9 +189,17 @@ env:
 
 See [DEVELOPMENT.md](./DEVELOPMENT.md) for information on building and testing the SDK.
 
+## Documentation
+
+See the full [Stytch Management API documentation](https://stytch.com/docs/workspaces/management-api) for more details on available endpoints and functionality.
+
 ## Support
 
-If you have questions or need help, please contact [support@stytch.com](mailto:support@stytch.com).
+If you've found a bug, [open an issue](https://github.com/stytchauth/stytch-management-python/issues/new)!
+
+If you have questions or want help troubleshooting, join us in [Slack](https://stytch.com/docs/resources/support/overview) or email support@stytch.com.
+
+If you've found a security vulnerability, please follow our [responsible disclosure instructions](https://stytch.com/docs/resources/security-and-trust/security#:~:text=Responsible%20disclosure%20program).
 
 ## License
 

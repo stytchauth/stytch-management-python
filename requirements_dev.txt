@@ -5,3 +5,4 @@ autoflake>=1.4.0
 mypy>=0.950
 types-requests>=2.27.0
 coverage>=6.0.0
+build>=0.7.0

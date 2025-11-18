@@ -21,7 +21,7 @@ if not version:
 
 # This call to setup() does all the work
 setup(
-    name="stytch-management-python",
+    name="stytch-management",
     version=version,
     description="Stytch Management API Python client",
     long_description=README,
