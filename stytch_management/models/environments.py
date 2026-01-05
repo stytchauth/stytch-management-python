@@ -33,12 +33,14 @@ class Environment(pydantic.BaseModel):
       - cross_org_passwords_enabled: CrossOrgPasswordsEnabled indicates whether the environment uses cross-org passwords.
       - user_impersonation_enabled: Indicates whether user impersonation is enabled for the environment.
       - zero_downtime_session_migration_url: ZeroDowntimeSessionMigrationURL is the OIDC-compliant UserInfo endpoint for session migration.
+      - use_custom_domain_in_magic_link_emails: (no documentation yet)
       - user_lock_self_serve_enabled: Indicates whether users in the environment who get locked out should automatically get an unlock email magic link.
       - user_lock_threshold: UserLockThreshold represents the number of failed authenticate attempts that will cause a user in the environment to be locked. Defaults to 10.
       - user_lock_ttl: Represents the time in seconds that the user in the environment remains locked once the lock is set. Defaults to 1 hour (3600 seconds).
       - idp_authorization_url: The OpenID Configuration endpoint for Connected Apps for the environment.
       - idp_dynamic_client_registration_enabled: IDPDynamicClientRegistrationEnabled indicates whether the project has opted in to Dynamic Client Registration (DCR) for Connected Apps.
       - idp_dynamic_client_registration_access_token_template_content: IDPDynamicClientRegistrationAccessTokenTemplateContent is the access token template to use for clients created through Dynamic Client Registration (DCR).
+      - project_id: (no documentation yet)
       - type: The environment's type.
       - created_at: The ISO-8601 timestamp for when the resource was created.
     """  # noqa
@@ -50,12 +52,14 @@ class Environment(pydantic.BaseModel):
     cross_org_passwords_enabled: bool
     user_impersonation_enabled: bool
     zero_downtime_session_migration_url: str
+    use_custom_domain_in_magic_link_emails: bool
     user_lock_self_serve_enabled: bool
     user_lock_threshold: int
     user_lock_ttl: int
     idp_authorization_url: str
     idp_dynamic_client_registration_enabled: bool
     idp_dynamic_client_registration_access_token_template_content: str
+    project_id: str
     type: Optional[EnvironmentType] = None
     created_at: Optional[str] = None
 

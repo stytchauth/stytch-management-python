@@ -161,6 +161,7 @@ class Environments:
         cross_org_passwords_enabled: Optional[bool] = None,
         user_impersonation_enabled: Optional[bool] = None,
         zero_downtime_session_migration_url: Optional[str] = None,
+        use_custom_domain_in_magic_link_emails: Optional[bool] = None,
         user_lock_self_serve_enabled: Optional[bool] = None,
         user_lock_threshold: Optional[int] = None,
         user_lock_ttl: Optional[int] = None,
@@ -179,6 +180,7 @@ class Environments:
           - cross_org_passwords_enabled: CrossOrgPasswordsEnabled indicates whether the environment uses cross-org passwords.
           - user_impersonation_enabled: Indicates whether user impersonation is enabled for the environment.
           - zero_downtime_session_migration_url: ZeroDowntimeSessionMigrationURL is the OIDC-compliant UserInfo endpoint for session migration.
+          - use_custom_domain_in_magic_link_emails: (no documentation yet)
           - user_lock_self_serve_enabled: Indicates whether users in the environment who get locked out should automatically get an unlock email magic link.
           - user_lock_threshold: UserLockThreshold represents the number of failed authenticate attempts that will cause a user in the environment to be locked. Defaults to 10.
           - user_lock_ttl: Represents the time in seconds that the user in the environment remains locked once the lock is set. Defaults to 1 hour (3600 seconds).
@@ -202,6 +204,10 @@ class Environments:
         if zero_downtime_session_migration_url is not None:
             data["zero_downtime_session_migration_url"] = (
                 zero_downtime_session_migration_url
+            )
+        if use_custom_domain_in_magic_link_emails is not None:
+            data["use_custom_domain_in_magic_link_emails"] = (
+                use_custom_domain_in_magic_link_emails
             )
         if user_lock_self_serve_enabled is not None:
             data["user_lock_self_serve_enabled"] = user_lock_self_serve_enabled
