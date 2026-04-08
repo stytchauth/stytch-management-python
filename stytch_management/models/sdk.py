@@ -168,6 +168,15 @@ class B2BTOTPsConfig(pydantic.BaseModel):
     enabled: bool
 
 
+class B2BUserImpersonationConfig(pydantic.BaseModel):
+    """
+    Fields:
+      - enabled: Enable authenticating member impersonation tokens. Allow the SDK to authenticate a member impersonation token for a full session as an impersonated member.
+    """  # noqa
+
+    enabled: bool
+
+
 class ConsumerBasicConfig(pydantic.BaseModel):
     """
     Fields:
@@ -278,6 +287,15 @@ class ConsumerTOTPsConfig(pydantic.BaseModel):
     enabled: bool
 
 
+class ConsumerUserImpersonationConfig(pydantic.BaseModel):
+    """
+    Fields:
+      - enabled: Enable authenticating member impersonation tokens. Allow the SDK to authenticate a member impersonation token for a full session as an impersonated member.
+    """  # noqa
+
+    enabled: bool
+
+
 class ConsumerWebAuthnConfig(pydantic.BaseModel):
     """
     Fields:
@@ -328,6 +346,7 @@ class B2BConfig(pydantic.BaseModel):
       - dfppa: DFPPA is the Device Fingerprinting Protected Auth configuration for the SDK.
       - passwords: Passwords is the passwords configuration for the SDK.
       - cookies: Cookies is the cookies configuration for the SDK.
+      - user_impersonation: (no documentation yet)
     """  # noqa
 
     basic: Optional[B2BBasicConfig] = None
@@ -340,6 +359,7 @@ class B2BConfig(pydantic.BaseModel):
     dfppa: Optional[B2BDFPPAConfig] = None
     passwords: Optional[B2BPasswordsConfig] = None
     cookies: Optional[B2BCookiesConfig] = None
+    user_impersonation: Optional[B2BUserImpersonationConfig] = None
 
 
 class ConsumerOTPsConfig(pydantic.BaseModel):
@@ -378,6 +398,7 @@ class ConsumerConfig(pydantic.BaseModel):
       - biometrics: Biometrics is the biometrics configuration for the SDK.
       - passwords: Passwords is the passwords configuration for the SDK.
       - cookies: Cookies is the cookies configuration for the SDK.
+      - user_impersonation: (no documentation yet)
     """  # noqa
 
     basic: Optional[ConsumerBasicConfig] = None
@@ -392,6 +413,7 @@ class ConsumerConfig(pydantic.BaseModel):
     biometrics: Optional[ConsumerBiometricsConfig] = None
     passwords: Optional[ConsumerPasswordsConfig] = None
     cookies: Optional[ConsumerCookiesConfig] = None
+    user_impersonation: Optional[ConsumerUserImpersonationConfig] = None
 
 
 class GetB2BConfigResponse(pydantic.BaseModel):
