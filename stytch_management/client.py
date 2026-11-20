@@ -17,6 +17,7 @@ from stytch_management.event_log_streaming import EventLogStreaming
 from stytch_management.http_client import DEFAULT_BASE_URL, HTTPClient
 from stytch_management.jwttemplates import JWTTemplates
 from stytch_management.passwordstrengthconfig import PasswordStrengthConfig
+from stytch_management.project_twilio_api_keys import ProjectTwilioAPIKeysService
 from stytch_management.projects import Projects
 from stytch_management.publictokens import PublicTokens
 from stytch_management.rbacpolicy import RBACPolicy
@@ -92,6 +93,9 @@ class Client:
         self.event_log_streaming = EventLogStreaming(self._http_client)
         self.jwt_templates = JWTTemplates(self._http_client)
         self.password_strength_config = PasswordStrengthConfig(self._http_client)
+        self.project_twilio_api_keys_service = ProjectTwilioAPIKeysService(
+            self._http_client
+        )
         self.public_tokens = PublicTokens(self._http_client)
         self.rbac_policy = RBACPolicy(self._http_client)
         self.redirect_urls = RedirectURLs(self._http_client)
