@@ -15,22 +15,6 @@ from typing import List, Optional
 import pydantic
 
 
-class B2BCookiesConfigHttpOnly(str, Enum):
-    """B2BCookiesConfigHttpOnly enum."""
-
-    DISABLED = "DISABLED"
-    ENABLED = "ENABLED"
-    ENFORCED = "ENFORCED"
-
-
-class ConsumerCookiesConfigHttpOnly(str, Enum):
-    """ConsumerCookiesConfigHttpOnly enum."""
-
-    DISABLED = "DISABLED"
-    ENABLED = "ENABLED"
-    ENFORCED = "ENFORCED"
-
-
 class DFPPAOnChallengeAction(str, Enum):
     """DFPPAOnChallengeAction enum."""
 
@@ -47,6 +31,22 @@ class DFPPASetting(str, Enum):
     ENABLED = "ENABLED"
     PASSIVE = "PASSIVE"
     DISABLED = "DISABLED"
+
+
+class B2BCookiesConfigHttpOnly(str, Enum):
+    """B2BCookiesConfigHttpOnly enum."""
+
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
+    ENFORCED = "ENFORCED"
+
+
+class ConsumerCookiesConfigHttpOnly(str, Enum):
+    """ConsumerCookiesConfigHttpOnly enum."""
+
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
+    ENFORCED = "ENFORCED"
 
 
 class SMSAutofillMetadataMetadataType(str, Enum):
@@ -98,10 +98,12 @@ class B2BDFPPAConfig(pydantic.BaseModel):
     Fields:
       - enabled: Indicates whether Device Fingerprinting Protected Auth endpoints are enabled in the SDK.
       - on_challenge: OnChallenge is the action to take when a DFPPA "challenge" verdict is returned.
+      - fre_enabled: FREEnabled is the Twilio Fraud Prevention setting for Device Fingerprinting Protected Auth in the SDK. It can only be turned on if the environment has a Twilio API key, and it cannot be stricter than the DFPPA setting.
     """  # noqa
 
     enabled: Optional[DFPPASetting] = None
     on_challenge: Optional[DFPPAOnChallengeAction] = None
+    fre_enabled: Optional[DFPPASetting] = None
 
 
 class B2BMagicLinksConfig(pydantic.BaseModel):
@@ -226,10 +228,12 @@ class ConsumerDFPPAConfig(pydantic.BaseModel):
     Fields:
       - enabled: Indicates whether Device Fingerprinting Protected Auth endpoints are enabled in the SDK.
       - on_challenge: OnChallenge is the action to take when a DFPPA "challenge" verdict is returned.
+      - fre_enabled: FREEnabled is the Twilio Fraud Prevention setting for Device Fingerprinting Protected Auth in the SDK. It can only be turned on if the environment has a Twilio API key, and it cannot be stricter than the DFPPA setting.
     """  # noqa
 
     enabled: Optional[DFPPASetting] = None
     on_challenge: Optional[DFPPAOnChallengeAction] = None
+    fre_enabled: Optional[DFPPASetting] = None
 
 
 class ConsumerMagicLinksConfig(pydantic.BaseModel):
